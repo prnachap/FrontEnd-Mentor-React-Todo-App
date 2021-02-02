@@ -1,0 +1,39 @@
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+.status-mobile {
+  margin-top: 1.6rem;
+  padding: 2rem 0;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  @include breakpoint-up(large) {
+    display: none;
+  }
+
+  display: flex;
+  justify-content: center;
+  gap: 1.9rem;
+  background: $color6;
+
+  &__text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 0.1rem;
+    letter-spacing: -0.19px;
+    color: $color4;
+    cursor: pointer;
+
+    & > * {
+      transition: all 0.3s ease;
+    }
+
+    & > *:hover {
+      color: $color5;
+    }
+
+    &--active {
+      color: $color7;
+    }
+  }
+}

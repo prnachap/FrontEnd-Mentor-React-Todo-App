@@ -1,0 +1,127 @@
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.6rem 0rem;
+  background-color: $color6;
+
+  @include breakpoint-up(large) {
+    padding: 2rem 0rem;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  //   task title
+  &__description {
+    padding: 0rem 1.2rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1px;
+    letter-spacing: -0.17px;
+    color: $color5;
+
+    @include breakpoint-up(large) {
+      padding: 0rem 2.4rem;
+      font-size: 1.8rem;
+      letter-spacing: -0.25px;
+    }
+
+    &--completed {
+      text-decoration: line-through;
+      color: $color3;
+    }
+  }
+
+  //   circle with gradient border
+  &__circle-outer {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: 0.15rem solid $color3;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    // animation: spinny 1000ms infinite;
+    @include breakpoint-up(large) {
+      height: 2.4rem;
+      width: 2.4rem;
+    }
+
+    &:hover {
+      border: none;
+      background-image: linear-gradient(
+        135deg,
+        hsl(192, 100%, 67%),
+        hsl(280, 87%, 65%)
+      );
+    }
+  }
+
+  //   inner circle
+  &__circle-inner {
+    background: $color6;
+    border-radius: 50%;
+    width: 90%;
+    height: 90%;
+    transform: translate(5%, 5%);
+    position: relative;
+    &--active {
+      background: none;
+    }
+  }
+
+  //   gradient animation
+  @keyframes spinny {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  &__check {
+    height: 1.5rem;
+    width: 1.5rem;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__icon-container {
+    height: 1.2rem;
+    width: 1.2rem;
+    cursor: pointer;
+
+    @include breakpoint-up(large) {
+      height: 1.8rem;
+      width: 1.8rem;
+    }
+  }
+
+  &__icon {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+  }
+
+  &:hover &__icon {
+    opacity: 1;
+    visibility: visible;
+  }
+}

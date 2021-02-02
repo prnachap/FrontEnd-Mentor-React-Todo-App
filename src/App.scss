@@ -1,0 +1,29 @@
+@import "./sass/variables";
+@import "./sass/mixins";
+/* initial resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: $color1;
+}
+
+// utilities
+.container {
+  max-width: 60rem;
+  width: 90%;
+  margin: 0 auto;
+}

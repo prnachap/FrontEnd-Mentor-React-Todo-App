@@ -1,0 +1,37 @@
+// media queries
+// 0 - 350px : normal css will apply
+// 350-480 : medium
+// 480-600 : tablet portrait
+// 600-801 : tablet landscape
+//801-1025 : large
+// 1025-1281+ : x-large
+
+//350px 480px 600px 801px 1025px
+$breakpoints-up: (
+  "medium": "21.875em",
+  "tablet-port": "30em",
+  "tab-landscape": "37.5em",
+  "large": "50em",
+  "x-large": "64em",
+);
+
+// 639px, 1023px, 1399px
+$breakpoints-down: (
+  "small": "21em",
+  "medium": "29.99em",
+  "tablet-port": "37.4em",
+  "tablet-landscape": "49.99em",
+  "large": "63.99em",
+);
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size )) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size )) {
+    @content;
+  }
+}
