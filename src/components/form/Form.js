@@ -13,7 +13,7 @@ const Form = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    addItem(input);
+    addItem({ title: input, status: "active" });
     setInput("");
   };
 
