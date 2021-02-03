@@ -1,12 +1,20 @@
-import React, { Fragment } from "react";
+import React, { useContext, Fragment } from "react";
 import "./item.scss";
 import Item from "../item-list/ItemList";
 import StatusBar from "../statusbar/StatusBar";
+import TodoContext from "../../context/todo/TodoContext";
 
 const Items = () => {
+  const todoContext = useContext(TodoContext);
+  const { allItems } = todoContext;
+
   return (
     <Fragment>
       <div className="items container">
+        {allItems.map((item, index) => (
+          <Item key={index} item={item} />
+        ))}
+
         <div className="items__metric">
           <p className="items__left">5 items left</p>
           <div className="items__status">

@@ -1,11 +1,14 @@
 import "./App.scss";
 import Header from "./components/header/Header";
+import TodoState from "./context/todo/TodoState";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-    </div>
+    <TodoState>
+      <div className="App">
+        <Header />
+      </div>
+    </TodoState>
   );
 }
 
