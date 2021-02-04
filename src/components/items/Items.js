@@ -39,6 +39,7 @@ const Items = () => {
 
   return (
     <Fragment>
+      {console.log(itemsLeft)}
       <div className="items container">
         {data.map((item, index) => (
           <Item key={index} item={item} />

@@ -6,7 +6,7 @@ import TodoContext from "../../context/todo/TodoContext";
 
 const ItemList = ({ item }) => {
   const { id, title, status } = item;
-  const [complete, setComplete] = useState(false);
+  const [complete, setComplete] = useState(true);
   const todoContext = useContext(TodoContext);
 
   const { markComplete, deleteItem } = todoContext;

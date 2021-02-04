@@ -1,5 +1,15 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { todoTypes } from "../type";
-// eslint-disable-next-line import/no-anonymous-default-export
+
+const countItemsLeft = (arr, status) => {
+  return arr.reduce((acc, currentValue) => {
+    if (currentValue.status !== status) {
+      acc++;
+    }
+    return acc;
+  }, 0);
+};
+
 export default (state, action) => {
   const { type, payload } = action;
 
@@ -8,8 +18,13 @@ export default (state, action) => {
       return {
         ...state,
         allItems: [...state.allItems, payload],
-        itemsLeft: [...state.allItems].filter((item) => item !== "completed")
-          .length,
+        itemsLeft: countItemsLeft([...state.allItems, payload], "completed"),
+        // itemsLeft: [...state.allItems, payload].reduce((acc, currentValue) => {
+        //   if (currentValue.status !== "completed") {
+        //     acc++;
+        //   }
+        //   return acc;
+        // }, 0),
       };
 
     case todoTypes.MARK_COMPLETE:
@@ -18,8 +33,22 @@ export default (state, action) => {
         allItems: state.allItems.map((item) =>
           item.id === payload ? { ...item, status: "completed" } : item
         ),
-        itemsLeft: [...state.allItems].filter((item) => item !== "completed")
-          .length,
+        itemsLeft: countItemsLeft(
+          state.allItems.map((item) =>
+            item.id === payload ? { ...item, status: "completed" } : item
+          ),
+          "completed"
+        ),
+        // itemsLeft: state.allItems
+        //   .map((item) =>
+        //     item.id === payload ? { ...item, status: "completed" } : item
+        //   )
+        //   .reduce((acc, currentValue) => {
+        //     if (currentValue.status !== "completed") {
+        //       acc++;
+        //     }
+        //     return acc;
+        //   }, 0),
       };
     case todoTypes.UNDO_COMPLETE:
       return {
@@ -27,8 +56,12 @@ export default (state, action) => {
         allItems: state.allItems.map((item) =>
           item.id === payload ? { ...item, status: "active" } : item
         ),
-        itemsLeft: [...state.allItems].filter((item) => item !== "completed")
-          .length,
+        itemsLeft: countItemsLeft(
+          state.allItems.map((item) =>
+            item.id === payload ? { ...item, status: "active" } : item
+          ),
+          "completed"
+        ),
       };
     case todoTypes.GET_ACTIVE:
       return {
@@ -55,9 +88,15 @@ export default (state, action) => {
       return {
         ...state,
         allItems: [...state.allItems].filter((item) => item.id !== payload),
-        activeItems: [...state.allItems].filter((item) => item.id !== payload),
-        completedItems: [...state.allItems].filter(
+        activeItems: [...state.activeItems].filter(
           (item) => item.id !== payload
+        ),
+        completedItems: [...state.completedItems].filter(
+          (item) => item.id !== payload
+        ),
+        itemsLeft: countItemsLeft(
+          [...state.allItems].filter((item) => item.id !== payload),
+          "completed"
         ),
       };
     case todoTypes.CLEAR_COMPLETED:
