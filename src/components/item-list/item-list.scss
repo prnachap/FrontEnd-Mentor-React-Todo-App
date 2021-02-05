@@ -5,12 +5,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 1.6rem 0rem;
-  background-color: var(--color6);
+  padding: 1.6rem 2rem;
+  background-color: var(--card);
 
   @include breakpoint-up(large) {
-    padding: 2rem 0rem;
+    padding: 2rem 2.4rem;
   }
 
   &__content {
@@ -25,7 +24,8 @@
     font-weight: 400;
     line-height: 1px;
     letter-spacing: -0.17px;
-    color: var(--color5);
+    color: var(--todoTitle);
+    transition: all 0.3s ease;
 
     @include breakpoint-up(large) {
       padding: 0rem 2.4rem;
@@ -35,7 +35,7 @@
 
     &--completed {
       text-decoration: line-through;
-      color: var(--color3);
+      color: var(--completed);
     }
   }
 
@@ -44,7 +44,7 @@
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
-    border: 0.15rem solid --var(color3);
+    border: 0.15rem solid var(--circle);
     cursor: pointer;
     position: relative;
     transition: all 0.3s ease;
@@ -66,12 +66,20 @@
 
   //   inner circle
   &__circle-inner {
-    background: var(--color6);
+    background: var(--card);
     border-radius: 50%;
     width: 90%;
     height: 90%;
     transform: translate(5%, 5%);
     position: relative;
+
+    &--active {
+      background-image: linear-gradient(
+        135deg,
+        hsl(192, 100%, 67%),
+        hsl(280, 87%, 65%)
+      );
+    }
   }
 
   //   gradient animation

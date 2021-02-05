@@ -24,8 +24,14 @@ const ItemList = ({ item }) => {
     <div className="item">
       <div className="item__content">
         <div className="item__circle-outer" onClick={onClickHandler}>
-          <div className="item__circle-inner item__circle-inner--active">
-            <img src={CheckIcon} alt="" className="item__check" />
+          <div
+            className={`item__circle-inner ${
+              !complete ? "item__circle-inner--active" : null
+            }`}
+          >
+            {!complete && (
+              <img src={CheckIcon} alt="" className="item__check" />
+            )}
           </div>
         </div>
         <p

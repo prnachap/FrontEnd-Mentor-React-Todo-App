@@ -2,13 +2,16 @@
 @import "./sass/mixins";
 
 :root {
-  --color1: hsl(0, 0%, 98%); //background color
-  --color2: hsl(236, 33%, 92%);
-  --color3: hsl(233, 11%, 84%); // for completed text
-  --color4: hsl(236, 9%, 61%); // placeholder text
-  --color5: hsl(235, 19%, 35%); // for texts within cards
-  --color6: #fff; // for list and card background
-  --color7: hsl(222, 36%, 5%);
+  --logo: #fff;
+  --formPlaceholderText: #9394a5;
+  --statusBar: #9394a5;
+  --statusBarHover: #484b6a;
+  --todoTitle: #484b6a;
+  --card: #fff;
+  --circle: #e4e5f1;
+  --boxShadow: rgba(194, 194, 214, 0.5);
+  --completed: #d2d3db;
+  --body: #fafafa;
   --commonColor: hsl(220, 98%, 61%);
 }
 
@@ -17,15 +20,15 @@
 }
 
 .dark-theme {
-  --color1: hsl(235, 21%, 11%); //background color
-  // --color2: hsl(235, 24%, 19%);
-
-  // --color34: hsl(236, 33%, 92%);
-
-  --color3: hsl(233, 14%, 35%); // for complete text
-  --color4: hsl(234, 11%, 52%); // for placeholder text
-  --color5: hsl(234, 39%, 85%); // for texts within cards
-  --color6: hsl(237, 14%, 26%);
+  --formPlaceholderText: #777a92;
+  --statusBar: #777a92;
+  --statusBarHover: #e4e5f1;
+  --todoTitle: #cacde8;
+  --card: #25273c;
+  --circle: #393a4c;
+  --boxShadow: rgba(0, 0, 0, 0.5);
+  --completed: #4d5066;
+  --body: #161722;
 }
 
 /* initial resets */
@@ -46,8 +49,8 @@ html {
 body {
   font-size: 1.8rem;
   font-family: "Josefin Sans", sans-serif;
-  background-color: var(--color1);
-  transition: all 1s ease;
+  background-color: var(--body);
+  transition: all 0.5s ease;
 }
 
 // utilities

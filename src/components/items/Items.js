@@ -40,9 +40,11 @@ const Items = () => {
   return (
     <Fragment>
       <div className="items container">
-        {data.map((item, index) => (
-          <Item key={index} item={item} />
-        ))}
+        <div className="items__list">
+          {data.map((item, index) => (
+            <Item key={index} item={item} />
+          ))}
+        </div>
 
         <div className="items__metric">
           <p className="items__left">{`${itemsLeft} items left`}</p>

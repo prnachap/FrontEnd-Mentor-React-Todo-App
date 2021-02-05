@@ -3,13 +3,14 @@
 
 .form {
   margin-top: 4rem;
+  box-shadow: 0px 35px 50px -15px var(--boxShadow);
 
   &__group {
     display: flex;
     align-items: center;
     padding: 1.4rem 2rem;
     border-radius: 0.5rem;
-    background-color: var(--color6);
+    background-color: var(--card);
 
     @include breakpoint-up(large) {
       padding: 2rem 2.4rem;
@@ -19,7 +20,7 @@
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    border: 0.15rem solid var(--color3);
+    border: 0.15rem solid var(--circle);
 
     @include breakpoint-up(large) {
       width: 2.4rem;
@@ -36,8 +37,8 @@
     letter-spacing: -0.17px;
     border: none;
     padding: 1rem 2rem;
-    color: var(--color5);
-    background-color: var(--color6);
+    color: var(--todoTitle);
+    background-color: var(--card);
 
     @include breakpoint-up(large) {
       font-size: 1.8rem;
@@ -50,7 +51,7 @@
     }
 
     &::placeholder {
-      color: var(--color4);
+      color: var(--formPlaceholderText);
     }
   }
 }

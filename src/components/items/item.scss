@@ -3,15 +3,14 @@
 
 .items {
   margin-top: 4rem;
-  padding: 0rem 2rem;
-  background-color: var(--color6);
+  background-color: var(--card);
   border-radius: $border-radius;
-  box-shadow: 0px 35px 50px -15px rgba(var(--color4), 0.5);
+  box-shadow: 0px 35px 50px -15px var(--boxShadow);
   max-height: 40rem;
   overflow-y: scroll;
 
-  @include breakpoint-up(large) {
-    padding: 0rem 2.4rem;
+  &__list > * {
+    border-bottom: 1px solid var(--circle);
   }
 
   // item metrics
@@ -19,13 +18,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem 0;
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 0.1rem;
     letter-spacing: -0.19px;
-    color: var(--color4);
+    background-color: var(--card);
+    color: var(--statusBar);
     cursor: pointer;
+    padding: 2rem 2rem;
+    @include breakpoint-up(large) {
+      padding: 2rem 2.4rem;
+    }
   }
 
   &__left,
@@ -38,7 +41,7 @@
     }
 
     &:hover {
-      color: var(--color5);
+      color: var(--statusBarHover);
     }
   }
 
@@ -54,7 +57,7 @@
     }
 
     & > *:hover {
-      color: var(--color5);
+      color: var(--statusBarHover);
     }
 
     &--active {
