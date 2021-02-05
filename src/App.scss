@@ -1,5 +1,33 @@
-@import "./sass/variables";
+// @import "./sass/variables";
 @import "./sass/mixins";
+
+:root {
+  --color1: hsl(0, 0%, 98%); //background color
+  --color2: hsl(236, 33%, 92%);
+  --color3: hsl(233, 11%, 84%); // for completed text
+  --color4: hsl(236, 9%, 61%); // placeholder text
+  --color5: hsl(235, 19%, 35%); // for texts within cards
+  --color6: #fff; // for list and card background
+  --color7: hsl(222, 36%, 5%);
+  --commonColor: hsl(220, 98%, 61%);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.dark-theme {
+  --color1: hsl(235, 21%, 11%); //background color
+  // --color2: hsl(235, 24%, 19%);
+
+  // --color34: hsl(236, 33%, 92%);
+
+  --color3: hsl(233, 14%, 35%); // for complete text
+  --color4: hsl(234, 11%, 52%); // for placeholder text
+  --color5: hsl(234, 39%, 85%); // for texts within cards
+  --color6: hsl(237, 14%, 26%);
+}
+
 /* initial resets */
 *,
 *::before,
@@ -18,7 +46,8 @@ html {
 body {
   font-size: 1.8rem;
   font-family: "Josefin Sans", sans-serif;
-  background-color: $color1;
+  background-color: var(--color1);
+  transition: all 1s ease;
 }
 
 // utilities

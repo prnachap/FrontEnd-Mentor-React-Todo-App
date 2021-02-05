@@ -5,7 +5,7 @@ import TodoState from "./context/todo/TodoState";
 function App() {
   return (
     <TodoState>
-      <div className="App">
+      <div className={`App`}>
         <Header />
       </div>
     </TodoState>

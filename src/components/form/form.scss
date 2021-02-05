@@ -9,7 +9,7 @@
     align-items: center;
     padding: 1.4rem 2rem;
     border-radius: 0.5rem;
-    background-color: $color6;
+    background-color: var(--color6);
 
     @include breakpoint-up(large) {
       padding: 2rem 2.4rem;
@@ -19,7 +19,7 @@
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    border: 0.15rem solid $color3;
+    border: 0.15rem solid var(--color3);
 
     @include breakpoint-up(large) {
       width: 2.4rem;
@@ -36,8 +36,8 @@
     letter-spacing: -0.17px;
     border: none;
     padding: 1rem 2rem;
-    color: $color5;
-    background-color: $color6;
+    color: var(--color5);
+    background-color: var(--color6);
 
     @include breakpoint-up(large) {
       font-size: 1.8rem;
@@ -50,7 +50,7 @@
     }
 
     &::placeholder {
-      color: $color4;
+      color: var(--color4);
     }
   }
 }

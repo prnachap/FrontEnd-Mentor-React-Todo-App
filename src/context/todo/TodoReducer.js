@@ -19,12 +19,6 @@ export default (state, action) => {
         ...state,
         allItems: [...state.allItems, payload],
         itemsLeft: countItemsLeft([...state.allItems, payload], "completed"),
-        // itemsLeft: [...state.allItems, payload].reduce((acc, currentValue) => {
-        //   if (currentValue.status !== "completed") {
-        //     acc++;
-        //   }
-        //   return acc;
-        // }, 0),
       };
 
     case todoTypes.MARK_COMPLETE:
@@ -39,16 +33,6 @@ export default (state, action) => {
           ),
           "completed"
         ),
-        // itemsLeft: state.allItems
-        //   .map((item) =>
-        //     item.id === payload ? { ...item, status: "completed" } : item
-        //   )
-        //   .reduce((acc, currentValue) => {
-        //     if (currentValue.status !== "completed") {
-        //       acc++;
-        //     }
-        //     return acc;
-        //   }, 0),
       };
     case todoTypes.UNDO_COMPLETE:
       return {

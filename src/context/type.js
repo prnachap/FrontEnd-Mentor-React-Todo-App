@@ -7,4 +7,5 @@ export const todoTypes = {
   GET_COMPLETED: "GET_COMPLETED",
   GET_ALL: "GET_ALL",
   CLEAR_COMPLETED: "CLEAR_COMPLETED",
+  SET_THEME: "SET_THEME",
 };
