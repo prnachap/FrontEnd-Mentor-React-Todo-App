@@ -11,15 +11,20 @@ import useWindowWidth from "../../hooks/useWindowWidth";
 import Items from "../items/Items";
 
 const Header = () => {
-  const [theme, setTheme] = useState("light");
+  const getStorageTheme = () => {
+    let theme = "light";
+    if (localStorage.getItem("theme")) {
+      theme = localStorage.getItem("theme");
+    }
+    return theme;
+  };
+
+  const [theme, setTheme] = useState(getStorageTheme());
 
   useEffect(() => {
     document.documentElement.className = `${theme}-theme`;
+    localStorage.setItem("theme", theme);
   }, [theme]);
-
-  // useEffect(() => {
-  //   localStorage.get("theme");
-  // });
 
   const width = useWindowWidth();
   const selectBackgroundImage = () => {

@@ -27,6 +27,12 @@ export default (state, action) => {
         allItems: state.allItems.map((item) =>
           item.id === payload ? { ...item, status: "completed" } : item
         ),
+        completedItems: state.completedItems.map((item) =>
+          item.id === payload ? { ...item, status: "completed" } : item
+        ),
+        activeItems: state.activeItems.map((item) =>
+          item.id === payload ? { ...item, status: "completed" } : item
+        ),
         itemsLeft: countItemsLeft(
           state.allItems.map((item) =>
             item.id === payload ? { ...item, status: "completed" } : item
@@ -40,6 +46,13 @@ export default (state, action) => {
         allItems: state.allItems.map((item) =>
           item.id === payload ? { ...item, status: "active" } : item
         ),
+        completedItems: state.completedItems.map((item) =>
+          item.id === payload ? { ...item, status: "active" } : item
+        ),
+        activeItems: state.activeItems.map((item) =>
+          item.id === payload ? { ...item, status: "active" } : item
+        ),
+
         itemsLeft: countItemsLeft(
           state.allItems.map((item) =>
             item.id === payload ? { ...item, status: "active" } : item

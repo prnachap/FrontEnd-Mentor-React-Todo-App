@@ -84,6 +84,11 @@ const Items = () => {
         onActive={onActiveHandler}
         onAll={onAllHandler}
       />
+      {data.length >= 1 && (
+        <p className="caption" style={{ textAlign: "center" }}>
+          Drag and drop to reorder list
+        </p>
+      )}
     </Fragment>
   );
 };

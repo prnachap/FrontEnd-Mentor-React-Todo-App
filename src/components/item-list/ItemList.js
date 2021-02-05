@@ -26,10 +26,10 @@ const ItemList = ({ item }) => {
         <div className="item__circle-outer" onClick={onClickHandler}>
           <div
             className={`item__circle-inner ${
-              !complete ? "item__circle-inner--active" : null
+              status === "completed" ? "item__circle-inner--active" : null
             }`}
           >
-            {!complete && (
+            {status === "completed" && (
               <img src={CheckIcon} alt="" className="item__check" />
             )}
           </div>
