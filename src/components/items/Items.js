@@ -82,6 +82,7 @@ const Items = () => {
         onComplete={onCompleteHandler}
         onActive={onActiveHandler}
         onAll={onAllHandler}
+type={type}
       />
     </Fragment>
   );
