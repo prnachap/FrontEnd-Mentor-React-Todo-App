@@ -21,6 +21,7 @@ const StatusBar = ({ onComplete, onActive, onAll, type }) => {
         Active
       </h4>
       <h4
+        onClick={onComplete}
         className={`status-mobile__text ${
           type === "completed" && "status-mobile__text--active"
         }`}
