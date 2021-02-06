@@ -21,7 +21,7 @@ const ItemList = ({ item }) => {
   };
 
   return (
-    <div className="item">
+    <li className="item">
       <div className="item__content">
         <div className="item__circle-outer" onClick={onClickHandler}>
           <div
@@ -45,7 +45,7 @@ const ItemList = ({ item }) => {
       <div className="item__icon-container" onClick={onDeleteHandler}>
         <img src={CloseIcon} alt="close icon" className="item__icon" />
       </div>
-    </div>
+    </li>
   );
 };
 

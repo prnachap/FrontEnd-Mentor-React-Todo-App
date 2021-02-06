@@ -40,12 +40,11 @@ const Items = () => {
   return (
     <Fragment>
       <div className="items container">
-        <div className="items__list">
+        <ul className="items__list">
           {data.map((item, index) => (
-            <Item key={index} item={item} />
+            <Item key={index} index={index} item={item} />
           ))}
-        </div>
-
+        </ul>
         <div className="items__metric">
           <p className="items__left">{`${itemsLeft} items left`}</p>
           <div className="items__status">
@@ -84,13 +83,13 @@ const Items = () => {
         onActive={onActiveHandler}
         onAll={onAllHandler}
       />
-      {data.length >= 1 && (
-        <p className="caption" style={{ textAlign: "center" }}>
-          Drag and drop to reorder list
-        </p>
-      )}
     </Fragment>
   );
 };
 
 export default Items;
+// {data.length >= 1 && (
+//   <p className="caption" style={{ textAlign: "center" }}>
+//     Drag and drop to reorder list
+//   </p>
+// )}
